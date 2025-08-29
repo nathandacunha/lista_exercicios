@@ -7,19 +7,18 @@
 </head>
 <body>
     <form method="POST">
-        <label for="numero">Digite um numero: </label>
-        <input type="text" name="verificarNumero" id="numero" required>
-        <button type="submit" id = "verificacao" name = "verificarNumero">Enviar numero</button>
+        <label for="numero">Informe um numero: </label>
+        <input type="number" id="numero" name= "numero" required>
+        <button type="submit" name = "informar_numero">Enviar numero</button>
     </form>
 
     <?php
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            if(isset($_POST['verificacao'])){
+            if(isset($_POST['informar_numero'])){
                 $numero = filter_var($_POST['numero'], FILTER_VALIDATE_INT);
                 if($numero === false){
-                    echo "<p> Numero invalido </p>";
+                    echo " Numero invalido ";
                 } else {
-                    echo "<p> Informar numero </p>";
                     if($numero > 0){
                         echo "<p> O numero é positivo </p>";
                     } else if($numero === 0){
